@@ -1,0 +1,467 @@
+* {
+    font-family: 'Exo 2', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+header{
+    width: 100%;
+    height: 80px;
+    background-color: #181410;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 100;
+}
+
+header a {
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header h1 {
+    font-size: 28px;
+    margin-left: 10px;
+}
+
+nav {
+    background-color: #3B3730;
+    height: 50px;
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    font-size: 20px;
+    z-index: 100;
+    border-bottom: 2px solid #000;
+}
+
+nav ul {
+    width: 75%;
+    justify-content: center;
+    display: flex;
+    margin-top: 5px;
+}
+
+
+.nav__ul-a li{
+    list-style: none;
+    color: #ffffff;
+}
+
+nav ul li:hover {
+    color: #9D9480;
+}
+
+.nav__ul-a-activo{
+    text-decoration: none;
+    list-style: none;
+    position: relative;
+    padding-bottom: 5px;
+    margin-right: 35px;
+    margin-left: 35px;
+    color: #9D9480;
+}
+
+.nav__ul-a {
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 5px;
+    margin-right: 35px;
+    margin-left: 35px;
+}
+  
+.nav__ul-a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #9D9480;
+    transition: width 0.3s ease-in-out;
+}
+  
+nav ul a:hover::after {
+    width: 100%;
+}
+
+.carrito-icono {
+    display: flex;
+    justify-content: flex-end;
+    color:#ffffff;
+}
+
+.carrito-icono:hover {
+    color:#9D9480;
+}
+
+.carrito {
+    position: fixed;
+    top: 150px;
+    right: 50px;
+    width: 400px;
+    background-color:#3B3730;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    z-index: 100;
+}
+
+.carrito h2 {
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#listaCarrito {
+    list-style: none;
+    padding: 0;
+}
+
+#listaCarrito li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#listaCarrito i {
+    color: #fff;
+    cursor: pointer;
+    margin-left: 10px; 
+}
+
+.carrito li {
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.carrito button {
+    background-color: #9D9480;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.carrito button:hover {
+    background-color: #6b655c; 
+}
+
+#totalCarrito{
+    color: #fff;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.formulario-tarjeta {
+    background-color: #ffffff;
+    padding: 30px;
+    padding-top: 60px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.formulario-tarjeta h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.formulario-tarjeta p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.formulario-tarjeta form {
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario-tarjeta .form-column {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.formulario-tarjeta label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.formulario-tarjeta input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.mensaje-pago {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #9D9480;
+    padding: 30px;
+    border: 2px solid #000;
+    color: #fff;
+    font-size: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 150;
+    border-radius: 2rem;
+  }
+
+.boton-cerrar {
+    margin-top: 20px;
+    padding: .6rem;
+    border-radius: 1rem;
+    border: none;
+    background-color: #fff;
+}
+
+.formulario-tarjeta button {
+    background-color: #9D9480;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.formulario-tarjeta button:hover {
+    background-color: #6b655c;
+}
+
+.cerrar {
+    position: absolute;
+    left: 58.2%;
+    bottom: 76.7%;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+
+.banner {
+    background-image: url(../imagenes/fondoCoverInicio.jpg);
+    width: 100%;
+    height: 95vh;
+    background-size: cover;
+    background-position:bottom;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.oferta{
+    display: flex;
+    position: relative;
+    width: 75%;
+    height: 500px;
+    top: 200px;
+    align-items: center;
+}
+
+.div-oferta {
+    position: absolute;
+    width: 50%;
+    left: 50%;
+    background-color: #3B3730;
+    opacity: 0.96;
+    height: 100%;
+    border-radius: 15px;
+    display: flex;
+    border: 2px solid #fff;
+}
+
+.div-oferta h1 {
+    position: absolute;
+    border-radius: 30px;
+    background-color: #9D9480;
+    padding: 15px;
+    color: yellow;
+    top: 13px;
+    left: 20px;
+    border: 3px solid yellow;
+    z-index: 100;
+}
+
+.div-oferta img {
+    width: 450px;
+    height: 330px;
+    position: absolute;
+    left: 110px;
+    top: 25px;
+    z-index: 100;
+    transition: transform 0.8s ease;
+}
+
+.div-oferta img:hover{
+    transform: scale(1.1);
+} 
+
+.div-oferta h2 {
+    color: #fff;
+    position: absolute;
+    top: 375px;
+    left: 15px;
+}
+
+.div-oferta-descripcion{
+    position: absolute;
+    top: 410px;
+    left: 18px;
+    color: #fff;
+    font-size: 13px;
+    width: 68%;
+}
+
+.div-oferta-precioBase {
+    position: absolute;
+    top: 400px;
+    left: 88%;
+    color: #fff;
+    opacity: 0.6;
+}
+
+.div-oferta-precioOferta{
+    position: absolute;
+    top: 390px;
+    left: 74%;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.div-oferta button {
+    margin-top: 10px;
+    background-color: #9D9480;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 35px;
+    position: absolute;
+    top: 430px;
+    left: 550px;
+}
+
+.div-marcas{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    background-color: #000;
+    bottom: 0;
+    margin-bottom: 48px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 50;
+}
+
+.div-marcas div {
+    width: 75%;
+    height: auto;
+    background-color: #000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 50;
+}
+
+.div-marcas img {
+    transition: transform 0.3s ease;
+}
+
+.div-marcas img:hover {
+    transform: scale(1.1);
+}
+
+.tienda-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+    background-color:#9D9480;
+}
+
+  
+.producto {
+    width: 500px; 
+    height: 500px;
+    background-color:#3B3730;
+    border: 2px solid #fff;
+    box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 10px;
+    margin-top: 35px;
+    text-align: center;
+}
+  
+.producto img {
+    max-width: 465px;
+    height: 300px;
+    border-radius: 5px;
+    color: #fff;
+}
+  
+.producto h2 {
+    margin-top: 10px;
+    color: #fff;
+}
+  
+.producto p {
+    margin-top: 5px;
+    color: #fff;
+}
+  
+.producto span {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    color: #fff;
+}
+  
+.producto button {
+    margin-top: 10px;
+    background-color: #9D9480;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  

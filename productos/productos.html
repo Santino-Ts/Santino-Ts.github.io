@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundVibes</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/84e6774dcd.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg" href="../favicon.svg"/>
+</head>
+<body>
+    <header>
+        <div>
+            <a href="../index.html"><i class="fa-solid fa-play fa-beat fa-lg" style="color: #ffffff;"></i><h1 style="font-family: 'Orbitron', sans-serif;">SoundVibes</h1></a>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <a href="../index.html" class="nav__ul-a"><li>Inicio</li></a>
+            <a href="#" class="nav__ul-a"><li>Sobre nosotros</li></a>
+            <a href="#" class="nav__ul-a-activo"><li>Productos</li></a>
+            <a href="#" class="nav__ul-a"><li>Contacto</li></a>
+        </ul>
+        <a href="#" onclick="mostrarCarrito()"><i class="fa-solid fa-cart-shopping fa-lg carrito-icono"></i></a> 
+    </nav>
+    <div id="carrito" class="carrito">
+        <h2>Carrito de compras</h2>
+        <ul id="listaCarrito"></ul>
+        <p id="totalCarrito">Total: $0.00</p>
+        <button onclick="mostrarFormulario()">Ir a pagar</button>
+    </div>
+
+    <div class="overlay" id="formularioOverlay">
+        <div class="formulario-tarjeta">
+            <button class="cerrar" onclick="cerrarFormulario()" style="color: #000;">X</button>
+            <h2>Formulario de Pago con Tarjeta</h2>
+            <p>Total a pagar: <span id="totalPagar"></span></p>
+            <form id="formularioPago" onsubmit="realizarPago(); return false;">
+                <div class="form-column">
+                    <label for="nombre">Titular de la tarjeta:</label>
+                    <input type="text" id="nombre" required>
+                </div>
+                <div class="form-column">
+                    <label for="numeroTarjeta">Número de Tarjeta:</label>
+                    <input type="text" id="numeroTarjeta" required>
+                </div>
+                <div class="form-column">
+                    <label for="fechaExpiracion">Fecha de Expiración:</label>
+                    <input type="text" id="fechaExpiracion" required>
+                </div>
+                <div class="form-column">
+                    <label for="codigoSeguridad">Código de Seguridad:</label>
+                    <input type="text" id="codigoSeguridad" required>
+                </div>
+                <div class="form-column">
+                    <label for="Direccion">Direccion:</label>
+                    <input type="text" id="Direccion" required>
+                </div>
+                <button type="submit">Pagar</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="mensaje-pago" id="mensajePago" style="display: none;">
+        <p>Pago realizado correctamente. <i class="fa-regular fa-face-grin-beam"></i> Tiempo estimado de entrega: <span id="diasEntrega"></span> días.</p>
+        <button class="boton-cerrar" onclick="cerrarMensajePago()">Cerrar</button>
+    </div>
+
+
+    <section class="banner">
+        <div class="oferta">
+            <div class="div-oferta">
+                <h1 class="fa-sm fa-beat">20% OFF</h1>
+                <img src="../imagenes/productoOferta.png" alt="Alesis DM10 X Kit">
+                <div style="width: 100%; background-color: #cacaca; height: 370px; position: absolute; z-index: 50; border-radius: 12px; opacity: 1;"></div>
+                <h2>Bateria electronica Alesis DM10 X Kit</h2>
+                <p class="div-oferta-descripcion">El DM10 X Kit es un conjunto de batería electrónica profesional premium de seis piezas con pads de batería de 10" y 12", platillos de 12", 14" y 16", el módulo DM10 de primera línea y el mejor XRack cromado de su clase. Con un secuenciador avanzado y más de 1000 sonidos.</p>
+                <p class="div-oferta-precioBase">$<s>2400</s></p>
+                <p class="div-oferta-precioOferta">$1920</p>
+                <button onclick="agregarAlCarrito('Bateria electronica Alesis DM10 X Kit')">Comprar</button>
+            </div>
+            
+            <div>
+                <iframe width="580" height="335" src="https://www.youtube.com/embed/SmeYo7BMzMk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="margin-left: 50px; border-radius: 20px;"></iframe>
+            </div>
+        </div>
+        
+        
+        
+        <div class="div-marcas">
+            <div>
+                <img src="../imagenes/gibsonLogo.jpg" style="display: block; width: 210px; height: 100px;" alt="Gibson">
+                <img src="../imagenes/alesisDrumsLogo.jpg" style="display: block; width: 210px; height: 100px;" alt="Alesis Drums">
+                <img src="../imagenes/fenderLogo.png" style="display: block; width: 150px; height: 100px; " alt="Fender">
+                <img src="../imagenes/yamahaLogo.jpg" style="display: block; width: 240px; height: 80px;" alt="Yamaha">
+                <img src="../imagenes/rolandLogo.png" style="display: block; width: 250px; height: 140px;" alt="Roland Drums">
+            </div>
+        </div>
+    </section>
+
+    <section class="tienda-section">
+        <div class="producto">
+          <img src="../imagenes/guitarra01.png" alt="Producto 1">
+          <h2>Guitarra electrica Fender Stratocaster</h2>
+          <p>Descripción del producto 1.</p>
+          <span>$1499.99</span>
+          <button onclick="agregarAlCarrito('Guitarra electrica Fender Stratocaster')">Agregar</button>
+        </div>
+      
+        <div class="producto">
+          <img src="../imagenes/bateria01.png" alt="Producto 2">
+          <h2>Bateria electronica Roland TD-30KV</h2>
+          <p>Descripción del producto 2.</p>
+          <span>$14.999.99</span>
+          <button onclick="agregarAlCarrito('Bateria electronica Roland TD-30KV')">Agregar</button>
+        </div>
+
+        <div class="producto">
+            <img src="../imagenes/guitarra02.png" alt="Producto 3">
+            <h2>Guitarra electrica Gibson SG Standard HC</h2>
+            <p>Descripción del producto 3.</p>
+            <span>$1600.00</span>
+            <button onclick="agregarAlCarrito('Guitarra electrica Gibson SG Standard HC')">Agregar</button>
+        </div>
+        
+        <div class="producto">
+            <img src="../imagenes/teclado01.png" alt="Producto 4">
+            <h2>Teclado Yamaha PSR-E453</h2>
+            <p>Descripción del producto 4.</p>
+            <span>$620.00</span>
+            <button onclick="agregarAlCarrito('Teclado Yamaha PSR-E453')">Agregar</button>
+        </div>
+        <div class="producto">
+            <img src="../imagenes/teclado02.png" alt="Producto 5">
+            <h2>Teclado Sintentizador Roland FA-06</h2>
+            <p>Descripción del producto 5.</p>
+            <span>$1400.00</span>
+            <button onclick="agregarAlCarrito('Teclado Sintentizador Roland FA-06')">Comprar</button>
+        </div>
+        <div class="producto">
+            <img src="../imagenes/guitarra03.png" alt="Producto 6">
+            <h2>Guitarra electrica Fender Telecaster</h2>
+            <p>Descripción del producto 6.</p>
+            <span>$1599.99</span>
+            <button onclick="agregarAlCarrito('Guitarra electrica Fender Telecaster')">Agregar</button>
+        </div>
+      </section>
+
+      <script src="script.js"></script>
+</body>
+</html>
